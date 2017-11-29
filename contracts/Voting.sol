@@ -20,19 +20,22 @@ contract Voting {
    uint public totalTokens; 
    uint public balanceTokens;
    uint public tokenPrice;
+   address owner;
 
-  modifier onlyOwner {
-    require(msg.sender == owner);
-    _;
-  }
-
+ 
   //Constructor: recibe listado de candidatos, cantidad de tokens a emitir, el balance y el precio del token. 
   function Voting(uint tokens, uint pricePerToken, bytes32[] candidateNames) public {
     candidateList = candidateNames;
     totalTokens = tokens;
     balanceTokens = tokens;
     tokenPrice = pricePerToken;
+    owner = msg.sender;
   }
+
+  modifier onlyOwner {
+    require(msg.sender == owner);
+    _;
+   }
 
   //Función que permite comprar tokens con ethers. 
   function buy() payable public returns (uint) {
