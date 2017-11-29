@@ -14,13 +14,11 @@ $ npm install -g truffle
 $ npm install -g webpack
 ```
 
-## Editar migrations/2_deploy_contracts.js
-Reemplazar valores ('Bob', 'Alice', 'Jose', 'etc')
-
+## Editar migrations/2_deploy_contracts.js (Reemplazar valores ('Bob', 'Alice', 'Jose', 'etc'))
 
 > var Voting = artifacts.require("./Voting.sol");
 > module.exports = function(deployer) {
-> 	deployer.deploy(Voting, 10000, web3.toWei('0.01', 'ether'), ['Bob', 'Alice', 'Jose']);
+> deployer.deploy(Voting, 10000, web3.toWei('0.01', 'ether'), ['Bob', 'Alice', 'Jose']);
 > };
 
 
